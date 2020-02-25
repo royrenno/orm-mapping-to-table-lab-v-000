@@ -1,18 +1,19 @@
 class Student
-  attr_accessor :name,:grade, :id
+  attr_accessor :name,:grade
+  attr_reader :id
 
-  def initialize(name,grade,id=nil)
+  def initialize(name,grade,id = nil)
   @id = id
   @name = name
   @grade = grade
   end
 
   def self.create_table
-    sql= <<-SQL
+    sql = <<-SQL
     CREATE TABLE IF NOT EXITS students(
-    id INTERGER PRIMARY KEYm
-    name TEXT
-    grade TEXT
+    id INTERGER PRIMARY KEY,
+    name TEXT,
+    grade INTERGER
     )
     SQL
     DB[:conn].excute(sql)
